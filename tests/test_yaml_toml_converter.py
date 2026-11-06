@@ -630,6 +630,7 @@ class TestRepoHygiene(unittest.TestCase):
             for path in ROOT.rglob("*")
             if path.is_file()
             and "__pycache__" not in str(path)
+            and ".git" not in path.parts
             and "tests" not in path.parts
         ]
         for path in shipped:
@@ -645,6 +646,7 @@ class TestRepoHygiene(unittest.TestCase):
             for path in ROOT.rglob("*")
             if path.is_file()
             and "__pycache__" not in str(path)
+            and ".git" not in path.parts
             and "tests" not in path.parts
         ]
         for path in shipped:
