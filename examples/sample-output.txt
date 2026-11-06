@@ -1,0 +1,49 @@
+--- yaml to toml ---
+name = "example-site"
+version = "1.4.0"
+draft = false
+private = false
+tags = ["fast", "small"]
+
+[settings]
+postsPerPage = 10
+theme = "light"
+
+[[pages]]
+path = "/"
+title = "Home"
+draft = false
+
+[[pages]]
+path = "/about"
+title = "About"
+draft = false
+--- toml to yaml ---
+name: example-site
+version: 1.4.0
+draft: false
+private: false
+tags:
+  - fast
+  - small
+settings:
+  postsPerPage: 10
+  theme: light
+pages:
+  - path: /
+    title: Home
+    draft: false
+  - path: /about
+    title: About
+    draft: false
+--- check all example files ---
+VALID   examples/config.yaml
+VALID   examples/config.toml
+VALID   examples/nested.yaml
+VALID   examples/nested.toml
+VALID   examples/lossy-dates.toml
+VALID   examples/lossy-null.yaml
+--- refuse: dates have no yaml form here ---
+REFUSED examples/lossy-dates.toml: date/time value at released has no YAML form here
+--- refuse: null has no toml form ---
+REFUSED examples/lossy-null.yaml: null value at notes has no TOML form

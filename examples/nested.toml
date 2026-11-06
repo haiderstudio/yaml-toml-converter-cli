@@ -1,0 +1,27 @@
+[server]
+host = "localhost"
+port = 8080
+
+[server.tls]
+enabled = true
+cert = "/etc/ssl/cert.pem"
+
+[thresholds]
+warn = 0.75
+fail = 0.95
+
+[[features]]
+name = "search"
+enabled = true
+
+[features.limits]
+perMinute = 60
+burst = 10
+
+[[features]]
+name = "cache"
+enabled = false
+
+[features.limits]
+perMinute = 0
+burst = 0

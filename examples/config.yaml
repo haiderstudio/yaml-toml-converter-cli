@@ -1,0 +1,17 @@
+name: example-site
+version: 1.4.0
+draft: false
+private: false
+tags:
+  - fast
+  - small
+settings:
+  postsPerPage: 10
+  theme: light
+pages:
+  - path: /
+    title: Home
+    draft: false
+  - path: /about
+    title: About
+    draft: false
